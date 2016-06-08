@@ -1,5 +1,6 @@
 build:
 	go tool vet .
+	go build ./...
 
-test:
+test: build
 	go test -v ./...
