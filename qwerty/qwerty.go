@@ -65,7 +65,11 @@ func Compare(s1, s2 string) float64 {
 
 	for i := range s1 {
 		if s1[i] != s2[i] {
-			distance += euclideanDistance(rune(s1[i]), rune(s2[i]))
+			res := euclideanDistance(rune(s1[i]), rune(s2[i]))
+			if res == -1 {
+				return res
+			}
+			distance += res
 		}
 	}
 
@@ -73,6 +77,14 @@ func Compare(s1, s2 string) float64 {
 }
 
 func euclideanDistance(s1, s2 rune) float64 {
+	if _, ok := distances[s1]; !ok {
+		return -1
+	}
+
+	if _, ok := distances[s2]; !ok {
+		return -1
+	}
+
 	x := math.Pow(distances[s1].x - distances[s2].x, 2)
 	y := math.Pow(distances[s1].y - distances[s2].y, 2)
 

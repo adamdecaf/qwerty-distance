@@ -43,6 +43,13 @@ func TestQwertyLongerStrings(t *testing.T) {
 	compare("food", "blue", 5.414214, t)
 	compare("food", "blur", 5.828427, t)
 }
+
+func TestMissingCharacters(t *testing.T) {
+	compare(" ", "a", -1, t)
+	compare("", "aa", -1, t)
+	compare("aa aa", "abcde", -1, t)
+}
+
 func compare(s1, s2 string, answer float64, t *testing.T) {
 	res := Compare(s1, s2)
 	if math.Abs(res - answer) > tolerance {
