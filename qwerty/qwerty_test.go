@@ -46,6 +46,6 @@ func TestQwertyLongerStrings(t *testing.T) {
 func compare(s1, s2 string, answer float64, t *testing.T) {
 	res := Compare(s1, s2)
 	if math.Abs(res - answer) > tolerance {
-		t.Fatalf("got %f, but expected %f, s1=%s, s2=%s", res, answer, s1, s2)
+		t.Fatalf("got %f, but expected %f, s1='%s', s2='%s'", res, answer, s1, s2)
 	}
 }
