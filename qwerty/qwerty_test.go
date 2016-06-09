@@ -28,6 +28,12 @@ func TestQuertyDistance(t *testing.T) {
 	compare("a", "m", 6.082763, t)
 }
 
+func TestQwertyCompareNumbers(t *testing.T) {
+	compare("1", "1", 0, t)
+	compare("1", "3", 2, t)
+	compare("1", "9", 8, t)
+}
+
 func TestQwertyLongerStrings(t *testing.T) {
 	compare("food", "food", 0, t)
 
