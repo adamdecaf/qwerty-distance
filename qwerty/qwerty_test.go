@@ -28,6 +28,15 @@ func TestQuertyDistance(t *testing.T) {
 	compare("a", "m", 6.082763, t)
 }
 
+func TestQwertyLongerStrings(t *testing.T) {
+	compare("food", "food", 0, t)
+
+	compare("foof", "food", 1, t)
+	compare("food", "foof", 1, t)
+
+	compare("food", "blue", 5.414214, t)
+	compare("food", "blur", 5.828427, t)
+}
 func compare(s1, s2 string, answer float64, t *testing.T) {
 	res := Compare(s1, s2)
 	if math.Abs(res - answer) > tolerance {
